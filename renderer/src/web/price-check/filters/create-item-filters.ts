@@ -247,6 +247,34 @@ export function createFilters (
     }
   }
 
+  if (item.sockets?.linked === 6 && item.isCorrupted) {
+  const hasSocketsCannotModifyMod = item.newMods.some(mod =>
+    mod.info.name?.includes('Sockets cannot be modified') ||
+    mod.stats?.some(stat => stat.stat.ref?.includes('Sockets cannot be modified'))
+  )
+  
+  if (hasSocketsCannotModifyMod) {
+    if (item.sockets.red) {
+      filters.redSockets = {
+        value: item.sockets.red,
+        disabled: false
+      }
+    }
+    if (item.sockets.green) {
+      filters.greenSockets = {
+        value: item.sockets.green,
+        disabled: false
+      }
+    }
+    if (item.sockets.blue) {
+      filters.blueSockets = {
+        value: item.sockets.blue,
+        disabled: false
+      }
+    }
+  }
+}
+
   const forAdornedJewel = (
     item.rarity === ItemRarity.Magic &&
     // item.isCorrupted && -- let the buyer corrupt
