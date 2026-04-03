@@ -118,6 +118,9 @@ interface TradeRequest {
           links?: FilterRange
           sockets?: {
             w?: number
+            r?: number
+            g?: number
+            b?: number
           }
         }
       }
@@ -361,6 +364,18 @@ export function createTradeRequest (filters: ItemFilters, stats: StatFilter[]) {
 
   if (filters.whiteSockets && !filters.whiteSockets.disabled) {
     propSet(query.filters, 'socket_filters.filters.sockets.w', filters.whiteSockets.value)
+  }
+
+  if (filters.redSockets && !filters.redSockets.disabled) {
+    propSet(query.filters, 'socket_filters.filters.sockets.r', filters.redSockets.value)
+  }
+
+  if (filters.greenSockets && !filters.greenSockets.disabled) {
+    propSet(query.filters, 'socket_filters.filters.sockets.g', filters.greenSockets.value)
+  }
+
+  if (filters.blueSockets && !filters.blueSockets.disabled) {
+    propSet(query.filters, 'socket_filters.filters.sockets.b', filters.blueSockets.value)
   }
 
   if (filters.mapTier && !filters.mapTier.disabled) {
