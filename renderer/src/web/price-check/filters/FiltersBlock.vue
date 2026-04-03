@@ -23,6 +23,12 @@
         :filter="filters.stackSize" :name="t('item.stock')" />
       <filter-btn-numeric v-if="filters.whiteSockets"
         :filter="filters.whiteSockets" :name="t('item.white_sockets')" />
+      <filter-btn-numeric v-if="filters.redSockets"
+        :filter="filters.redSockets" :name="t('item.red_sockets')" />
+      <filter-btn-numeric v-if="filters.greenSockets"
+        :filter="filters.greenSockets" :name="t('item.green_sockets')" />
+      <filter-btn-numeric v-if="filters.blueSockets"
+        :filter="filters.blueSockets" :name="t('item.blue_sockets')" />
       <filter-btn-numeric v-if="filters.gemLevel"
         :filter="filters.gemLevel" :name="t('item.gem_level')" />
       <filter-btn-numeric v-if="filters.quality"
